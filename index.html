@@ -4,60 +4,716 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Morrow Coffee</title>
+    <meta name="theme-color" content="#f4ecdf">
+    <meta name="description"
+        content="Morrow Coffee is a small-batch coffee bar and roastery in Portland, Oregon. Good mornings, warm pastries, and a seat by the window.">
+    <meta property="og:title" content="Morrow Coffee — Good mornings, poured slowly">
+    <meta property="og:description"
+        content="Small-batch coffee, warm pastries, and a seat by the window. Open daily on Alder Street.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="assets/images/hero-2000.webp">
+    <title>Morrow Coffee — Good mornings, poured slowly</title>
+
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+    <link rel="preload" href="assets/fonts/Fraunces.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="assets/fonts/InstrumentSans.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="assets/images/hero-2000.webp" as="image" type="image/webp">
     <link rel="stylesheet" href="styles/style.css">
 </head>
 
-<body>
+<body id="top">
+    <a class="skip-link" href="#main">Skip to content</a>
 
-    <header>
-        <nav>
+    <header class="site-header" data-header>
+        <div class="site-header__inner">
+            <a class="brand" href="#top" aria-label="Morrow Coffee, back to top">
+                <svg class="brand__mark" viewBox="0 0 40 40" aria-hidden="true">
+                    <path d="M7 27.5h26" />
+                    <path d="M11 27.5a9 9 0 0 1 18 0" />
+                    <path d="M20 8.5v3.5" />
+                    <path d="M9.5 13.5l2.4 2.4" />
+                    <path d="M30.5 13.5l-2.4 2.4" />
+                </svg>
+                <span class="brand__type">
+                    <span class="brand__name">Morrow</span>
+                    <span class="brand__sub">Coffee · Portland</span>
+                </span>
+            </a>
 
-            <ul class="sidebar">
-                <li onclick="hideSidebar()"><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="26px"
-                            viewBox="0 -960 960 960" width="26px" fill="#0f0f0f">
-                            <path
-                                d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z" />
-                        </svg></a></li>
-                <li><a href="#"><img src="https://placehold.co/28x28" alt="">Morroww Coffe</a></li>
-                <li><a href="menu.html">Menu</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Contact</a></li>
+            <nav class="primary-nav" aria-label="Primary">
+                <a href="#story" data-nav-link>Our story</a>
+                <a href="#menu" data-nav-link>Menu</a>
+                <a href="#day" data-nav-link>A day here</a>
+                <a href="#roast" data-nav-link>The roast</a>
+                <a href="#visit" data-nav-link>Visit</a>
+            </nav>
 
-            </ul>
-
-            <ul>
-                <li><a href="#"><img src="https://placehold.co/28x28" alt="">Morroww Coffe</a></li>
-                <li class="hideOnMoblie"><a href="menu.html">Menu</a></li>
-                <li class="hideOnMoblie"><a href="#">About</a></li>
-                <li class="hideOnMoblie"><a href="#">Contact</a></li>
-                <li onclick="showSidebar()" class="hideOnPc"><a href="#"><svg xmlns="http://www.w3.org/2000/svg"
-                            height="26px" viewBox="0 -960 960 960" width="26px" fill="#0f0f0f">
-                            <path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z" />
-                        </svg></a></li>
-            </ul>
-        </nav>
+            <div class="site-header__actions">
+                <p class="open-status" data-open-status aria-live="polite">
+                    <span class="open-status__dot" aria-hidden="true"></span>
+                    <span data-open-label>Open daily from 6:30</span>
+                </p>
+                <a class="button button--small" href="#visit">Find the café <span aria-hidden="true">→</span></a>
+                <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav"
+                    data-nav-toggle>
+                    <span class="nav-toggle__label">Menu</span>
+                    <span class="nav-toggle__lines" aria-hidden="true">
+                        <span></span>
+                        <span></span>
+                    </span>
+                </button>
+            </div>
+        </div>
     </header>
 
-    <main>
-        <section>
-            <h1>Morrow Coffee</h1>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Atque labore iure quam
-            </p>
+    <div class="mobile-nav" id="mobile-nav" role="dialog" aria-modal="true" aria-label="Site menu"
+        aria-hidden="true" data-mobile-nav>
+        <div class="mobile-nav__top">
+            <a class="brand brand--mobile" href="#top" aria-label="Morrow Coffee, back to top">
+                <svg class="brand__mark" viewBox="0 0 40 40" aria-hidden="true">
+                    <path d="M7 27.5h26" />
+                    <path d="M11 27.5a9 9 0 0 1 18 0" />
+                    <path d="M20 8.5v3.5" />
+                    <path d="M9.5 13.5l2.4 2.4" />
+                    <path d="M30.5 13.5l-2.4 2.4" />
+                </svg>
+                <span class="brand__type">
+                    <span class="brand__name">Morrow</span>
+                    <span class="brand__sub">Coffee · Portland</span>
+                </span>
+            </a>
+            <button class="mobile-nav__close" type="button" data-nav-close>
+                <span>Close</span>
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M5 5l14 14M19 5L5 19" />
+                </svg>
+            </button>
+        </div>
 
-            <div id="button_container">
-                <a href="menu.html">
-                    <button class="explore_button">
-                        Explore
-                    </button>
-                </a>
+        <nav class="mobile-nav__links" aria-label="Mobile">
+            <a href="#story" data-mobile-link><span>01</span> Our story</a>
+            <a href="#menu" data-mobile-link><span>02</span> Menu</a>
+            <a href="#day" data-mobile-link><span>03</span> A day here</a>
+            <a href="#roast" data-mobile-link><span>04</span> The roast</a>
+            <a href="#visit" data-mobile-link><span>05</span> Visit</a>
+        </nav>
+
+        <div class="mobile-nav__utility">
+            <p class="open-status open-status--mobile" data-open-status aria-live="off">
+                <span class="open-status__dot" aria-hidden="true"></span>
+                <span data-open-label>Open daily from 6:30</span>
+            </p>
+            <a class="button button--small" href="#visit">Find the café <span aria-hidden="true">→</span></a>
+        </div>
+
+        <div class="mobile-nav__foot">
+            <p>214 SE Alder Street<br>Portland, OR 97214</p>
+            <p>Mon–Fri 6:30 — 18:00<br>Sat–Sun 7:30 — 17:00</p>
+            <a href="mailto:hello@morrowcoffee.com">hello@morrowcoffee.com</a>
+        </div>
+    </div>
+
+    <main id="main">
+        <section class="hero" aria-labelledby="hero-title">
+            <div class="hero__media">
+                <picture>
+                    <source media="(max-width: 719px)" srcset="assets/images/hero-mobile-1074.webp">
+                    <img src="assets/images/hero-2000.webp"
+                        alt="Milk being poured into a cup of coffee at Morrow Coffee" width="2000" height="1250"
+                        fetchpriority="high">
+                </picture>
+                <div class="hero__wash" aria-hidden="true"></div>
             </div>
 
+            <div class="hero__content">
+                <p class="hero__edition">Morning edition · Vol. 01 · Portland, OR</p>
+
+                <div class="stamp stamp--hero" aria-hidden="true">
+                    <svg class="stamp__ring" viewBox="0 0 200 200">
+                        <defs>
+                            <path id="stamp-hero-path"
+                                d="M100,100 m-76,0 a76,76 0 1,1 152,0 a76,76 0 1,1 -152,0" />
+                        </defs>
+                        <circle cx="100" cy="100" r="94" />
+                        <text>
+                            <textPath href="#stamp-hero-path" startOffset="0">SMALL BATCH · ROASTED IN PORTLAND ·
+                                EST. 2019 · </textPath>
+                        </text>
+                    </svg>
+                    <span class="stamp__core">
+                        <svg viewBox="0 0 40 40" aria-hidden="true">
+                            <path d="M7 27.5h26" />
+                            <path d="M11 27.5a9 9 0 0 1 18 0" />
+                            <path d="M20 8.5v3.5" />
+                            <path d="M9.5 13.5l2.4 2.4" />
+                            <path d="M30.5 13.5l-2.4 2.4" />
+                        </svg>
+                    </span>
+                </div>
+
+                <p class="hero__capture">House oat latte · 08:12</p>
+
+                <div class="hero__card">
+                    <svg class="coffee-ring coffee-ring--hero" viewBox="0 0 400 400" aria-hidden="true">
+                        <g fill="none" stroke="currentColor">
+                            <circle cx="200" cy="200" r="156" stroke-width="6" opacity=".16"
+                                stroke-dasharray="280 24 18 32 210 20" />
+                            <circle cx="202" cy="198" r="148" stroke-width="1.5" opacity=".14" />
+                            <circle cx="200" cy="200" r="174" stroke-width="2" opacity=".08"
+                                stroke-dasharray="1 10" />
+                        </g>
+                    </svg>
+
+                    <p class="kicker"><span class="kicker__sun" aria-hidden="true"></span>Coffee for the slow hours</p>
+                    <h1 id="hero-title">Good morning,<br><em>take your time.</em></h1>
+                    <p class="hero__body">Small-batch coffee, warm pastries, and a seat by the window. We open at first
+                        light on Alder Street.</p>
+
+                    <div class="hero__actions">
+                        <a class="button button--primary" href="#menu">See the morning menu <span
+                                aria-hidden="true">↓</span></a>
+                        <a class="text-link" href="#visit">Find the café <span aria-hidden="true">→</span></a>
+                    </div>
+
+                    <div class="hero__fineprint">
+                        <span>Mon–Fri 6:30 — 18:00 · Sat–Sun 7:30 — 17:00</span>
+                        <span>214 SE Alder St</span>
+                    </div>
+                </div>
+
+                <a class="scroll-cue" href="#story">
+                    <span class="scroll-cue__line" aria-hidden="true"></span>
+                    <span>Scroll to wander</span>
+                </a>
+            </div>
+        </section>
+
+        <div class="ticker" aria-hidden="true">
+            <div class="ticker__track">
+                <span>Freshly roasted every Tuesday</span><span class="ticker__dot">●</span>
+                <span>Single origin, always</span><span class="ticker__dot">●</span>
+                <span>Baked before sunrise</span><span class="ticker__dot">●</span>
+                <span>Good mornings, poured slowly</span><span class="ticker__dot">●</span>
+                <span>Window seats open</span><span class="ticker__dot">●</span>
+                <span>Freshly roasted every Tuesday</span><span class="ticker__dot">●</span>
+                <span>Single origin, always</span><span class="ticker__dot">●</span>
+                <span>Baked before sunrise</span><span class="ticker__dot">●</span>
+                <span>Good mornings, poured slowly</span><span class="ticker__dot">●</span>
+                <span>Window seats open</span><span class="ticker__dot">●</span>
+            </div>
+        </div>
+
+        <section class="section story" id="story" aria-labelledby="story-title">
+            <div class="section__inner">
+                <div class="story__grid">
+                    <div class="story__copy">
+                        <svg class="coffee-ring coffee-ring--story" viewBox="0 0 400 400" aria-hidden="true">
+                            <g fill="none" stroke="currentColor">
+                                <circle cx="200" cy="200" r="156" stroke-width="5" opacity=".13"
+                                    stroke-dasharray="270 26 18 32 214 18" />
+                                <circle cx="202" cy="198" r="146" stroke-width="1.5" opacity=".11" />
+                                <circle cx="200" cy="200" r="174" stroke-width="2" opacity=".06"
+                                    stroke-dasharray="1 10" />
+                            </g>
+                        </svg>
+
+                        <p class="eyebrow" data-reveal="left"><span>01</span> Our story</p>
+                        <h2 class="display display--story" id="story-title" data-reveal="up">A small room,<br>a long
+                            table,<br><em>and coffee we can stand behind.</em></h2>
+
+                        <div class="story__body">
+                            <p data-reveal="up">Morrow began with a second-hand roaster and a simple idea: the best
+                                part of the day shouldn't be rushed.</p>
+                            <p data-reveal="up">We roast in small batches in the back, bake before sunrise, and keep the
+                                window seats open for whoever needs them.</p>
+                        </div>
+
+                        <p class="signature" data-reveal="up">— Mira &amp; Jonah, founders</p>
+
+                        <ul class="story__facts" data-reveal="up">
+                            <li><span>Roasted</span> in-house, every Tuesday</li>
+                            <li><span>Baked</span> before sunrise</li>
+                            <li><span>Seats</span> by the window, always</li>
+                        </ul>
+                    </div>
+
+                    <figure class="story__figure">
+                        <div class="image-frame image-frame--story" data-image-reveal>
+                            <img src="assets/images/story-1200.webp"
+                                alt="Morning light falls across a table by the window, set with a French press and a cup of coffee"
+                                width="1200" height="1500" loading="lazy">
+                        </div>
+                        <figcaption>
+                            <span class="caption-index">Morning light, 07:12</span>
+                            <span class="caption-note">The corner table is first come, first served.</span>
+                        </figcaption>
+                    </figure>
+                </div>
+            </div>
+        </section>
+
+        <section class="section menu" id="menu" aria-labelledby="menu-title">
+            <div class="section__inner">
+                <header class="section-head">
+                    <div>
+                        <p class="eyebrow" data-reveal="left"><span>02</span> The morning list</p>
+                        <h2 class="display" id="menu-title" data-reveal="up">What's <em>in the cup.</em></h2>
+                    </div>
+                    <p class="section-head__note" data-reveal="up">A short list, changing with the season and whatever
+                        the roaster is excited about.</p>
+                </header>
+
+                <div class="menu__grid">
+                    <div class="menu__media">
+                        <figure class="menu__figure">
+                            <div class="image-frame image-frame--menu" data-image-reveal>
+                                <img src="assets/images/menu-latte-1000.webp"
+                                    alt="Two lattes on a wooden table beside a potted plant" width="1000" height="1333"
+                                    loading="lazy">
+                            </div>
+                            <figcaption>Oat flat white · the 8am regular</figcaption>
+                        </figure>
+
+                        <figure class="menu__croissant" data-reveal="scale">
+                            <img src="assets/images/croissant-1000.webp" alt="A flaky butter croissant on a dark plate"
+                                width="1000" height="750" loading="lazy">
+                            <figcaption>Butter croissant · laminated in-house</figcaption>
+                        </figure>
+                    </div>
+
+                    <div class="menu__lists">
+                        <div class="menu__group" data-reveal="up">
+                            <h3><span>Espresso</span><span class="menu__index">01</span></h3>
+                            <ul>
+                                <li>
+                                    <span class="menu__name">Espresso</span>
+                                    <span class="menu__dots" aria-hidden="true"></span>
+                                    <span class="menu__price">3.50</span>
+                                    <span class="menu__desc">cocoa nib, dried cherry, brown sugar</span>
+                                </li>
+                                <li>
+                                    <span class="menu__name">Cortado</span>
+                                    <span class="menu__dots" aria-hidden="true"></span>
+                                    <span class="menu__price">4.25</span>
+                                    <span class="menu__desc">two ounces, whole milk</span>
+                                </li>
+                                <li>
+                                    <span class="menu__name">Oat flat white</span>
+                                    <span class="menu__dots" aria-hidden="true"></span>
+                                    <span class="menu__price">5.00</span>
+                                    <span class="menu__desc">house oat, honeyed</span>
+                                </li>
+                                <li>
+                                    <span class="menu__name">Maple iced latte</span>
+                                    <span class="menu__dots" aria-hidden="true"></span>
+                                    <span class="menu__price">5.50</span>
+                                    <span class="menu__desc">maple, sea salt, oat</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="menu__group" data-reveal="up">
+                            <h3><span>Filter</span><span class="menu__index">02</span></h3>
+                            <ul>
+                                <li>
+                                    <span class="menu__name">Batch brew</span>
+                                    <span class="menu__dots" aria-hidden="true"></span>
+                                    <span class="menu__price">3.75</span>
+                                    <span class="menu__desc">bottomless before 10</span>
+                                </li>
+                                <li>
+                                    <span class="menu__name">Pour-over</span>
+                                    <span class="menu__dots" aria-hidden="true"></span>
+                                    <span class="menu__price">6.00</span>
+                                    <span class="menu__desc">rotating single origin; ask the bar</span>
+                                </li>
+                                <li>
+                                    <span class="menu__name">Cold brew</span>
+                                    <span class="menu__dots" aria-hidden="true"></span>
+                                    <span class="menu__price">4.75</span>
+                                    <span class="menu__desc">18-hour steep, black</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="menu__group menu__group--oven" data-reveal="up">
+                            <h3><span>From the oven</span><span class="menu__index">03</span></h3>
+                            <ul>
+                                <li>
+                                    <span class="menu__name">Cardamom bun</span>
+                                    <span class="menu__dots" aria-hidden="true"></span>
+                                    <span class="menu__price">4.50</span>
+                                    <span class="menu__desc">baked at 5 am</span>
+                                </li>
+                                <li>
+                                    <span class="menu__name">Butter croissant</span>
+                                    <span class="menu__dots" aria-hidden="true"></span>
+                                    <span class="menu__price">4.00</span>
+                                    <span class="menu__desc">laminated in-house</span>
+                                </li>
+                                <li>
+                                    <span class="menu__name">Olive oil cake</span>
+                                    <span class="menu__dots" aria-hidden="true"></span>
+                                    <span class="menu__price">5.00</span>
+                                    <span class="menu__desc">citrus, rosemary</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <aside class="filter-card" data-reveal="up">
+                            <p class="filter-card__label">On filter today</p>
+                            <p class="filter-card__origin">Huila, Colombia</p>
+                            <p class="filter-card__notes">Cocoa nib · red apple · panela</p>
+                            <a class="text-link text-link--light" href="#roast">Meet the roast <span
+                                    aria-hidden="true">→</span></a>
+                        </aside>
+                    </div>
+                </div>
+
+                <footer class="menu__footer">
+                    <p>Oat, almond, and whole milk. Decaf available. Ask about today's filter.</p>
+                    <a class="text-link" href="#visit">See you at the counter <span aria-hidden="true">→</span></a>
+                </footer>
+            </div>
+        </section>
+
+        <section class="day" id="day" aria-labelledby="day-title" data-day>
+            <div class="day__pin">
+                <div class="section__inner day__header">
+                    <div>
+                        <p class="eyebrow" data-reveal="left"><span>03</span> A day at Morrow</p>
+                        <h2 class="display display--day" id="day-title" data-reveal="up">The day, <em>poured
+                                slowly.</em></h2>
+                    </div>
+                    <p class="section-head__note" data-reveal="up">From the first grind to the last rinse — a few hours
+                        in the life of the room.</p>
+                    <div class="day__progress" aria-hidden="true">
+                        <span class="day__progress-bar" data-day-progress></span>
+                    </div>
+                </div>
+
+                <div class="day__viewport">
+                    <div class="day__track" data-day-track>
+                        <article class="moment">
+                            <div class="moment__meta">
+                                <span class="moment__index">01</span>
+                                <span class="moment__time">06:30</span>
+                                <span class="moment__label">Doors open</span>
+                            </div>
+                            <figure class="moment__figure">
+                                <img src="assets/images/open-1080.webp"
+                                    alt="The espresso bar at Morrow, warm lights on above the counter" width="1080"
+                                    height="1350" loading="lazy">
+                            </figure>
+                            <div class="moment__copy">
+                                <h3>The first grind</h3>
+                                <p>The lights come on, the grinder wakes up, and the first espresso goes across the
+                                    bar.</p>
+                            </div>
+                        </article>
+
+                        <article class="moment">
+                            <div class="moment__meta">
+                                <span class="moment__index">02</span>
+                                <span class="moment__time">08:00</span>
+                                <span class="moment__label">Morning rush</span>
+                            </div>
+                            <figure class="moment__figure">
+                                <img src="assets/images/rush-1200.webp"
+                                    alt="Three friends holding coffee cups together at a table" width="1200"
+                                    height="1500" loading="lazy">
+                            </figure>
+                            <div class="moment__copy">
+                                <h3>The regulars</h3>
+                                <p>To-go cups, oat flat whites, and the smell of cardamom buns pulling people in from
+                                    the rain.</p>
+                            </div>
+                        </article>
+
+                        <article class="moment">
+                            <div class="moment__meta">
+                                <span class="moment__index">03</span>
+                                <span class="moment__time">12:30</span>
+                                <span class="moment__label">The long table</span>
+                            </div>
+                            <figure class="moment__figure">
+                                <img src="assets/images/noon-1200.webp"
+                                    alt="The long communal table at Morrow in the middle of the day" width="1200"
+                                    height="1500" loading="lazy">
+                            </figure>
+                            <div class="moment__copy">
+                                <h3>The middle of the day</h3>
+                                <p>Laptops, lunch, a second round. The long table fills up and nobody rushes anybody
+                                    out.</p>
+                            </div>
+                        </article>
+
+                        <article class="moment moment--dark">
+                            <div class="moment__meta">
+                                <span class="moment__index">04</span>
+                                <span class="moment__time">17:30</span>
+                                <span class="moment__label">Last pour</span>
+                            </div>
+                            <figure class="moment__figure">
+                                <img src="assets/images/last-1200.webp"
+                                    alt="A black coffee in a glass cup with a long afternoon shadow" width="1200"
+                                    height="1500" loading="lazy">
+                            </figure>
+                            <div class="moment__copy">
+                                <h3>The amber hour</h3>
+                                <p>The light goes gold, the last Chemex is rinsed, and we stack the chairs for
+                                    tomorrow.</p>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+
+                <div class="section__inner day__foot">
+                    <p>First grind to last pour — four moments.</p>
+                    <p data-day-count>01 / 04</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="roast" id="roast" aria-labelledby="roast-title">
+            <div class="roast__texture" aria-hidden="true"></div>
+            <div class="section__inner roast__grid">
+                <div class="roast__copy">
+                    <p class="eyebrow eyebrow--light" data-reveal="left"><span>04</span> The roast</p>
+                    <h2 class="display display--roast" id="roast-title" data-reveal="up">This month,<br><em>we're
+                            drinking Huila.</em></h2>
+                    <p class="roast__body" data-reveal="up">A washed Colombia from the hills above Pitalito — cocoa
+                        nib, red apple, and a long, clean finish. Roasted every Tuesday in the back room.</p>
+
+                    <dl class="tasting-notes" data-reveal="up">
+                        <div>
+                            <dt>Origin</dt>
+                            <dd>Huila, Colombia</dd>
+                        </div>
+                        <div>
+                            <dt>Process</dt>
+                            <dd>Washed</dd>
+                        </div>
+                        <div>
+                            <dt>Altitude</dt>
+                            <dd>1,750 m</dd>
+                        </div>
+                        <div>
+                            <dt>Varietal</dt>
+                            <dd>Caturra, Castillo</dd>
+                        </div>
+                        <div>
+                            <dt>Roast</dt>
+                            <dd>Medium</dd>
+                        </div>
+                        <div>
+                            <dt>Notes</dt>
+                            <dd>Cocoa nib / red apple / panela</dd>
+                        </div>
+                    </dl>
+
+                    <a class="button button--light" href="#visit" data-reveal="up">Try it in the café <span
+                            aria-hidden="true">→</span></a>
+                </div>
+
+                <div class="roast__visual" data-reveal="scale">
+                    <div class="roast__orbit" aria-hidden="true"></div>
+                    <figure class="roast__image">
+                        <img src="assets/images/roast-beans-1200.webp"
+                            alt="Roasted coffee beans spilling from a burlap sack" width="1200" height="1200"
+                            loading="lazy">
+                    </figure>
+                    <p class="roast__lot">Morrow House · Lot 001 · 250 g</p>
+
+                    <div class="stamp stamp--roast" aria-hidden="true">
+                        <svg class="stamp__ring" viewBox="0 0 200 200">
+                            <defs>
+                                <path id="stamp-roast-path"
+                                    d="M100,100 m-76,0 a76,76 0 1,1 152,0 a76,76 0 1,1 -152,0" />
+                            </defs>
+                            <circle cx="100" cy="100" r="94" />
+                            <text>
+                                <textPath href="#stamp-roast-path" startOffset="0">SMALL BATCH · ROASTED IN PORTLAND ·
+                                    LOT 001 · </textPath>
+                            </text>
+                        </svg>
+                        <span class="stamp__core">
+                            <span class="stamp__monogram">M</span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section__inner roast__graph">
+                <div class="roast__graph-head">
+                    <p class="eyebrow eyebrow--light"><span>Profile</span> Roast curve</p>
+                    <p>Charge 198°C · First crack 9:12 · Drop 11:40</p>
+                </div>
+
+                <svg class="roast-curve" viewBox="0 0 1200 210" role="img"
+                    aria-label="Illustrative roast curve rising from charge to first crack and drop">
+                    <defs>
+                        <linearGradient id="roast-fill" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="0" stop-color="#d0955e" stop-opacity=".22" />
+                            <stop offset="1" stop-color="#d0955e" stop-opacity="0" />
+                        </linearGradient>
+                    </defs>
+                    <path class="roast-curve__fill"
+                        d="M0 160 C40 160 62 128 92 124 C160 116 218 100 300 86 C400 70 520 56 640 51 C720 48 790 49 860 53 C940 58 1020 51 1120 41 L1200 37 L1200 210 L0 210 Z"
+                        fill="url(#roast-fill)" />
+                    <path class="roast-curve__line"
+                        d="M0 160 C40 160 62 128 92 124 C160 116 218 100 300 86 C400 70 520 56 640 51 C720 48 790 49 860 53 C940 58 1020 51 1120 41 L1200 37" />
+                    <line class="roast-curve__marker" x1="860" y1="53" x2="860" y2="210" />
+                    <circle class="roast-curve__dot" cx="1200" cy="37" r="4" />
+                    <g class="roast-curve__labels">
+                        <text x="8" y="190">Charge</text>
+                        <text x="92" y="110">Turning point</text>
+                        <text x="860" y="32">First crack</text>
+                        <text x="1120" y="26">Drop</text>
+                    </g>
+                </svg>
+                <div class="roast__axis" aria-hidden="true">
+                    <span>0:00</span>
+                    <span>3:00</span>
+                    <span>6:00</span>
+                    <span>9:00</span>
+                    <span>12:00</span>
+                </div>
+                <ul class="roast-curve__key">
+                    <li><span>Charge</span><span>0:00</span></li>
+                    <li><span>Turning point</span><span>3:00</span></li>
+                    <li><span>First crack</span><span>9:12</span></li>
+                    <li><span>Drop</span><span>11:40</span></li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="section visit" id="visit" aria-labelledby="visit-title">
+            <div class="section__inner">
+                <div class="visit__grid">
+                    <div class="visit__copy">
+                        <p class="eyebrow" data-reveal="left"><span>05</span> Come by</p>
+                        <h2 class="display" id="visit-title" data-reveal="up">There's a seat<br><em>by the window.</em>
+                        </h2>
+                        <p class="visit__body" data-reveal="up">We're on Alder Street, a block from the river. Come for
+                            the coffee; stay for the light.</p>
+
+                        <dl class="visit__details" data-reveal="up">
+                            <div>
+                                <dt>Address</dt>
+                                <dd>214 SE Alder Street<br>Portland, OR 97214</dd>
+                            </div>
+                            <div>
+                                <dt>Hours</dt>
+                                <dd>Mon–Fri 6:30 — 18:00<br>Sat–Sun 7:30 — 17:00</dd>
+                            </div>
+                            <div>
+                                <dt>Say hello</dt>
+                                <dd><a href="mailto:hello@morrowcoffee.com">hello@morrowcoffee.com</a></dd>
+                            </div>
+                        </dl>
+
+                        <div class="visit__actions" data-reveal="up">
+                            <a class="button button--primary"
+                                href="https://www.google.com/maps/search/?api=1&amp;query=214+SE+Alder+Street+Portland+OR+97214"
+                                target="_blank" rel="noopener">Get directions <span aria-hidden="true">↗</span></a>
+                            <a class="text-link"
+                                href="mailto:hello@morrowcoffee.com?subject=Cupping%20%E2%80%94%20save%20me%20a%20seat">Save
+                                a seat for the cupping <span aria-hidden="true">↗</span></a>
+                        </div>
+
+                        <div class="visit__event" data-reveal="up">
+                            <p class="visit__event-date">Next cupping · Sat 14 Nov · 10:00</p>
+                            <p>Four coffees, one table, no experience necessary. Free, but seats are limited.</p>
+                        </div>
+                    </div>
+
+                    <div class="visit__visual">
+                        <figure class="visit__figure">
+                            <div class="image-frame image-frame--visit" data-image-reveal>
+                                <img src="assets/images/cafe-interior-1600.webp"
+                                    alt="The dining room at Morrow with white chairs, wooden tables, and a fig tree"
+                                    width="1600" height="1200" loading="lazy">
+                            </div>
+                            <figcaption>The room at 09:40, before the lunch rush.</figcaption>
+                        </figure>
+
+                        <div class="visit__map" data-reveal="scale" aria-hidden="true">
+                            <div class="visit__map-head">
+                                <span>Alder St</span>
+                                <span>N ↑</span>
+                            </div>
+                            <svg viewBox="0 0 320 220">
+                                <g class="map-streets">
+                                    <path d="M-10 70 L340 46" />
+                                    <path d="M-10 146 L340 124" />
+                                    <path d="M64 -10 L92 240" />
+                                    <path d="M196 -10 L210 240" />
+                                    <path d="M-10 206 L340 188" />
+                                </g>
+                                <path class="map-river" d="M286 -10 C264 52 300 94 276 148 C258 188 276 214 268 240" />
+                                <path class="map-route" d="M92 146 L164 136 L164 124 L210 118" />
+                                <circle class="map-dot" cx="210" cy="118" r="7" />
+                                <circle class="map-dot-ring" cx="210" cy="118" r="15" />
+                                <g class="map-labels">
+                                    <text x="176" y="104">Morrow</text>
+                                    <text x="246" y="200">Willamette</text>
+                                    <text x="18" y="56">SE 2nd Ave</text>
+                                </g>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
     </main>
 
+    <footer class="footer">
+        <div class="section__inner footer__inner">
+            <svg class="coffee-ring coffee-ring--footer" viewBox="0 0 400 400" aria-hidden="true">
+                <g fill="none" stroke="currentColor">
+                    <circle cx="200" cy="200" r="156" stroke-width="5" opacity=".16"
+                        stroke-dasharray="270 26 18 32 214 18" />
+                    <circle cx="202" cy="198" r="146" stroke-width="1.5" opacity=".12" />
+                    <circle cx="200" cy="200" r="174" stroke-width="2" opacity=".07" stroke-dasharray="1 10" />
+                </g>
+            </svg>
 
-    <script src="script.js"></script>
+            <p class="eyebrow eyebrow--light footer__eyebrow"><span>Fin.</span> Until tomorrow</p>
+            <h2 class="footer__big" data-reveal="up">See you <em>tomorrow.</em></h2>
+
+            <div class="footer__grid">
+                <div class="footer__col">
+                    <p class="footer__label">Morrow Coffee</p>
+                    <p>214 SE Alder Street<br>Portland, OR 97214</p>
+                </div>
+                <div class="footer__col">
+                    <p class="footer__label">Hours</p>
+                    <p>Mon–Fri 6:30 — 18:00<br>Sat–Sun 7:30 — 17:00</p>
+                </div>
+                <div class="footer__col">
+                    <p class="footer__label">Say hello</p>
+                    <p><a href="mailto:hello@morrowcoffee.com">hello@morrowcoffee.com</a><br>
+                        <a href="mailto:hello@morrowcoffee.com?subject=The%20Sunday%20Pour">Join The Sunday Pour ↗</a>
+                    </p>
+                </div>
+                <div class="footer__col footer__col--note">
+                    <p class="footer__label">A note</p>
+                    <p>A short letter from the roastery, once a month. No noise, just coffee.</p>
+                </div>
+            </div>
+
+            <div class="footer__bottom">
+                <p>© 2026 Morrow Coffee. Roasted in Portland, Oregon.</p>
+                <a href="#top">Back to top ↑</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="vendor/gsap.min.js" defer></script>
+    <script src="vendor/ScrollTrigger.min.js" defer></script>
+    <script src="vendor/lenis.min.js" defer></script>
+    <script src="script.js" defer></script>
 </body>
 
 </html>
